@@ -6,10 +6,12 @@ import java.util.List;
 public class ClinicaMedica {
 
     private String nome;
-    private String cnpj;
-    private List<Medico> medicos;
-    private List<Secretario> secretarios;
-    private List<Paciente> pacientes;
+    private final String cnpj; // o CNPJ após inicializado não deve ser modificado
+    // as listas também são "final" porque a referência não será modificada, isto é,
+    // estas variáveis sempre apontarão para a mesma lista (isto é apenas uma boa prática)
+    private final List<Medico> medicos;
+    private final List<Secretario> secretarios;
+    private final List<Paciente> pacientes;
 
     public ClinicaMedica(String nome, String cnpj) {
         this.nome = nome;
