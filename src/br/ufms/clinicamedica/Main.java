@@ -6,7 +6,9 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-            Secretario secretario = new Secretario(
+            ClinicaMedica clinica = new ClinicaMedica("Clínica Universitária", "");
+
+            Secretario s1 = new Secretario(
                     "Kleber Kruger",
                     "12345678909",
                     null,
@@ -15,9 +17,22 @@ public class Main {
                     LocalDate.now(), 30000
             );
 
-            ClinicaMedica clinica = new ClinicaMedica("Clínica Universitária", "");
-            // Implemente seus testes aqui...
-            // Experimente cadastrar um secretário, médico, paciente, agendar uma consulta...
+            Secretario s2 = new Secretario(
+                    "Kleber Kruger",
+                    "12345678909",
+                    null,
+                    "67991234567",
+                    LocalDate.of(1988, 12, 8),
+                    LocalDate.now(), 30000
+            );
+
+            clinica.adicionarSecretario(s1);
+            clinica.adicionarSecretario(s2);
+
+            for (Secretario s : clinica.getSecretarios()) {
+//                System.out.println(s.getNome());
+                System.out.println(s);
+            }
 
         } catch (Exception ex) {
             System.err.println(ex.getMessage());
