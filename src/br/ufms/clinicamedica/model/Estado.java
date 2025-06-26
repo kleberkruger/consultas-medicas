@@ -1,4 +1,4 @@
-package br.ufms.clinicamedica;
+package br.ufms.clinicamedica.model;
 
 public enum Estado {
 

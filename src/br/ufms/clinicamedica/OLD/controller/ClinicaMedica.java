@@ -1,4 +1,9 @@
-package br.ufms.clinicamedica;
+package br.ufms.clinicamedica.OLD.controller;
+
+import br.ufms.clinicamedica.model.Consulta;
+import br.ufms.clinicamedica.model.Medico;
+import br.ufms.clinicamedica.model.Paciente;
+import br.ufms.clinicamedica.model.Secretario;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;

@@ -1,4 +1,4 @@
-package br.ufms.clinicamedica;
+package br.ufms.clinicamedica.model;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
