@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
-public interface ConsultaService {
+public interface ConsultaServiceInterface {
 
     /**
      * Agenda uma consulta médica.

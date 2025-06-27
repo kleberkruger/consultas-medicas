@@ -10,7 +10,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.*;
 
-public abstract class FileRepository<Entity, Id extends Serializable> implements Repository<Entity, Id>, AutoCloseable {
+public abstract class FileRepository<Entity, Id extends Serializable> implements RepositoryInterface<Entity, Id>, AutoCloseable {
 
     private static final Path ROOT = Paths.get(System.getProperty("user.home"), ".clinica");
 

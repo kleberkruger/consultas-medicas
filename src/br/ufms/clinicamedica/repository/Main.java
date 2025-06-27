@@ -4,7 +4,7 @@ import br.ufms.clinicamedica.model.Paciente;
 
 import java.time.LocalDate;
 
-public class MainRepository {
+public class Main {
 
     public static void main(String[] args) {
         try (PacienteRepository pacienteRepository = new PacienteRepository()) {

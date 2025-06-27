@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.Optional;
 
-public interface Repository<Entity, Id extends Serializable> {
+public interface RepositoryInterface<Entity, Id extends Serializable> {
 
     void save(Entity entity) throws Exception;
 

@@ -1,7 +1,7 @@
 package br.ufms.clinicamedica.repository.old;
 
 import br.ufms.clinicamedica.model.Paciente;
-import br.ufms.clinicamedica.repository.Repository;
+import br.ufms.clinicamedica.repository.RepositoryInterface;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -11,7 +11,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
 
-public class PacienteRepository implements Repository<Paciente, String> {
+public class PacienteRepository implements RepositoryInterface<Paciente, String> {
 
     private final Map<String, Paciente> pacientes;
 

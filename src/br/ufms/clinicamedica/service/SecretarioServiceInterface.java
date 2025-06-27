@@ -5,7 +5,7 @@ import br.ufms.clinicamedica.model.Secretario;
 import java.util.List;
 import java.util.Optional;
 
-public interface SecretarioService {
+public interface SecretarioServiceInterface {
 
     void salvarSecretario(Secretario secretario);
 

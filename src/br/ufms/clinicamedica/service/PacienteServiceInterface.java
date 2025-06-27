@@ -5,7 +5,7 @@ import br.ufms.clinicamedica.model.Paciente;
 import java.util.List;
 import java.util.Optional;
 
-public interface PacienteService {
+public interface PacienteServiceInterface {
 
     void salvarPaciente(Paciente paciente);
 

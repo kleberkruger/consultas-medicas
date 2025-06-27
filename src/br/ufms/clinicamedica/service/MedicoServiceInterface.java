@@ -4,7 +4,7 @@ import br.ufms.clinicamedica.model.Medico;
 
 import java.util.*;
 
-public interface MedicoService {
+public interface MedicoServiceInterface {
 
     void salvarMedico(Medico medico);
 
