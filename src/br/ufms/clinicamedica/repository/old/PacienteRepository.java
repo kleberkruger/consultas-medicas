@@ -1,4 +1,4 @@
-package br.ufms.clinicamedica.OLD.repository;
+package br.ufms.clinicamedica.repository.old;
 
 import br.ufms.clinicamedica.model.Paciente;
 import br.ufms.clinicamedica.repository.Repository;

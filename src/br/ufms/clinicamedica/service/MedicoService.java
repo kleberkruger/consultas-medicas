@@ -1,36 +1,31 @@
 package br.ufms.clinicamedica.service;
 
-import br.ufms.clinicamedica.model.Consulta;
 import br.ufms.clinicamedica.model.Medico;
-import br.ufms.clinicamedica.model.Paciente;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public interface MedicoService {
 
-    /// Médicos
-    void cadastrarMedico(Medico medico);
-
-    void atualizarMedico(Medico medico);
+    void salvarMedico(Medico medico);
 
     void excluirMedico(Medico medico);
 
-    void aplicarReceita(Consulta consulta);
+    Optional<Medico> buscarMedico(String cpf);
 
-    void pedirExame(String... exames);
+    Optional<Medico> buscarMedicoPorCRM(String crm);
 
-    void pedirExames(List<String> exames);
+    Collection<Medico> listarMedicos();
 
-    Optional<Consulta> buscarConsulta(long  codigo);
+    /// Ações do médico
+    void prescreverReceita(String crm, String codigoConsulta, String receita);
 
-    List<Consulta> listarTodasConsultas();
+    default void pedirExame(String crm, String codigoConsulta, String exame) {
+        pedirExames(crm, codigoConsulta, List.of(exame));
+    }
 
-    List<Consulta> listarConsultasPorMedico(Medico medico);
+    default void pedirExames(String crm, String codigoConsulta, String... exames) {
+        pedirExames(crm, codigoConsulta, List.of(exames));
+    }
 
-    List<Consulta> listarConsultasPorPaciente(Paciente paciente);
-
-    List<Consulta> listarConsultasPorData(LocalDate data);
+    void pedirExames(String crm, String codigoConsulta, List<String> exames);
 }
