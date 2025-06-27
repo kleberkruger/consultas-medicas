@@ -24,19 +24,19 @@ public class Secretario extends Usuario {
      *
      * @param nome           nome
      * @param cpf            CPF
-     * @param endereco       endereço
+     * @param email          email
      * @param telefone       telefone
      * @param dataNascimento data de nascimento
      * @param dataIngresso   data de ingresso na clínica
      * @param salario        salário
      */
-    public Secretario(String nome, String cpf, Endereco endereco, String telefone,
+    public Secretario(String nome, String cpf, String email, String telefone,
                       LocalDate dataNascimento, LocalDate dataIngresso, double salario) {
         // chama o construtor da super classe para inicializar os atributos obrigatórios
         super(nome, cpf);
 
         // inicializa os atributos chamando os métodos setters da super classe (Usuario) para validar os valores
-        super.setEndereco(endereco);
+        super.setEmail(email);
         super.setTelefone(telefone);
         super.setDataNascimento(dataNascimento);
 
@@ -92,10 +92,10 @@ public class Secretario extends Usuario {
     public String toString() {
         return "Secretario{nome='" + getNome() + '\'' +
                 ", cpf='" + getCpf() + '\'' +
-                ", endereco=" + getEndereco() +
+                ", email='" + getEmail() + '\'' +
                 ", telefone='" + getTelefone() + '\'' +
-                ", dataNascimento=" + getDataNascimento() + '\'' +
-                ", dataIngresso=" + dataIngresso + '\'' +
+                ", dataNascimento='" + getDataNascimento() + '\'' +
+                ", dataIngresso='" + dataIngresso + '\'' +
                 ", salario='" + salario +
                 '}';
     }

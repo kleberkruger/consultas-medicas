@@ -4,10 +4,11 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.UUID;
 
 public class Consulta {
 
-    private final long codigo;
+    private final UUID codigo;
     private final Medico medico;
     private final Paciente paciente;
     private String sintomas;
@@ -16,10 +17,8 @@ public class Consulta {
     private String receita;
     private List<String> exames;
 
-    private static long proximoCodigo = 0;
-
     public Consulta(Medico medico, Paciente paciente, String sintomas, LocalDateTime dataHora, double valor) {
-        this.codigo = ++proximoCodigo;
+        this.codigo = UUID.randomUUID();
         this.medico = medico;
         this.paciente = paciente;
         this.sintomas = sintomas;
@@ -27,8 +26,8 @@ public class Consulta {
         this.valor = valor;
     }
 
-    public long getCodigo() {
-        return codigo;
+    public String getCodigo() {
+        return codigo.toString();
     }
 
     public Medico getMedico() {
@@ -85,7 +84,7 @@ public class Consulta {
     /**
      * Adiciona um exame a esta consulta.
      *
-     * @param exame
+     * @param exame nome do exame
      */
     public void pedirExame(String exame) {
         if (exame == null || exame.isBlank()) {
@@ -97,7 +96,7 @@ public class Consulta {
     /**
      * Adiciona um conjunto de exames a esta consulta.
      *
-     * @param exame
+     * @param exame nomes do exames
      */
     public void pedirExames(String... exame) {
         for (String e : exame) {
@@ -127,5 +126,31 @@ public class Consulta {
      */
     public boolean isAtendida() {
         return (receita != null && !receita.isBlank() || !exames.isEmpty());
+    }
+
+    @Override
+    public final boolean equals(Object o) {
+        if (!(o instanceof Consulta consulta)) return false;
+
+        return codigo.equals(consulta.codigo);
+    }
+
+    @Override
+    public int hashCode() {
+        return codigo.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "Consulta{" +
+                "codigo='" + codigo.toString() + '\'' +
+                ", medico='" + medico.getNome() + '\'' +
+                ", paciente='" + paciente.getNome() +'\'' +
+                ", sintomas='" + sintomas + '\'' +
+                ", dataHora='" + dataHora + '\'' +
+                ", valor=" + valor +
+                ", receita='" + receita + '\'' +
+                ", exames=" + exames +
+                '}';
     }
 }

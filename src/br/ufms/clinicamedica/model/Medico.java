@@ -24,13 +24,13 @@ public class Medico extends Usuario {
      * @param nome           nome
      * @param cpf            cpf
      * @param crm            número de registro no Conselho Regional de Medicina (CRM)
-     * @param endereco       endereço
+     * @param email          email
      * @param telefone       telefone
      * @param dataNascimento data de nascimento
      */
-    public Medico(String nome, String cpf, String crm, Endereco endereco, String telefone,
+    public Medico(String nome, String cpf, String crm, String email, String telefone,
                   LocalDate dataNascimento) {
-        super(nome, cpf, endereco, telefone, dataNascimento);
+        super(nome, cpf, email, telefone, dataNascimento);
 
         this.setCrm(crm);
     }
@@ -59,10 +59,10 @@ public class Medico extends Usuario {
     public String toString() {
         return "Medico{nome='" + getNome() + '\'' +
                 ", cpf='" + getCpf() + '\'' +
-                ", endereco=" + getEndereco() +
+                ", email='" + getEmail() + '\'' +
                 ", telefone='" + getTelefone() + '\'' +
-                ", dataNascimento=" + getDataNascimento() + '\'' +
-                ", crm=" + crm +
+                ", dataNascimento='" + getDataNascimento() + '\'' +
+                ", crm='" + crm + '\'' +
                 '}';
     }
 }

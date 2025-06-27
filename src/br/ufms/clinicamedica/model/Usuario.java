@@ -6,7 +6,7 @@ public class Usuario {
 
     private String nome;
     private final String cpf; // final, pois este atributo após inicializado não será alterável
-    private Endereco endereco;
+    private String email;
     private String telefone;
     private LocalDate dataNascimento;
 
@@ -29,13 +29,13 @@ public class Usuario {
      *
      * @param nome           nome da pessoa
      * @param cpf            cpf
-     * @param endereco       endereço
+     * @param email          email
      * @param telefone       telefone
      * @param dataNascimento data de nascimento
      */
-    protected Usuario(String nome, String cpf, Endereco endereco, String telefone, LocalDate dataNascimento) {
+    protected Usuario(String nome, String cpf, String email, String telefone, LocalDate dataNascimento) {
         setNome(nome);
-        setEndereco(endereco);
+        setEmail(email);
         setTelefone(telefone);
         setDataNascimento(dataNascimento);
 
@@ -62,7 +62,7 @@ public class Usuario {
         }
         nome = nome.trim(); // elimina espaços adicionais no início ou final da string
         if (nome.isEmpty()) {
-            throw new IllegalArgumentException("O nome pode ser em branco");
+            throw new IllegalArgumentException("O nome não pode estar em branco");
         } else if (!nome.matches("^[A-Za-zÀ-ÖØ-öø-ÿ'\\-\\s]+$")) {
             throw new IllegalArgumentException("O nome possui caracteres inválidos: " + nome);
         } else if (nome.split(" ").length < 2) {
@@ -83,21 +83,29 @@ public class Usuario {
     }
 
     /**
-     * Obtém o endereço.
+     * Obtém o email.
      *
-     * @return o endereço.
+     * @return o email.
      */
-    public Endereco getEndereco() {
-        return endereco;
+    public String getEmail() {
+        return email;
     }
 
     /**
-     * Altera o endereço
+     * Altera o email
      *
-     * @param endereco novo endereço
+     * @param email novo email
      */
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
+    public void setEmail(String email) {
+        email = email.trim(); // elimina espaços adicionais no início ou final da string
+        if (email.isEmpty()) {
+            throw new IllegalArgumentException("O email não pode estar em branco");
+        } else if (!email.matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$")) {
+            throw new IllegalArgumentException("O email possui caracteres inválidos: " + email);
+        } else if (email.length() < 6 || email.length() > 60) {
+            throw new IllegalArgumentException("O email deve ter de 6 a 60 caracteres");
+        }
+        this.email = email;
     }
 
     /**
@@ -195,9 +203,9 @@ public class Usuario {
     public String toString() {
         return "Usuario{nome='" + nome + '\'' +
                 ", cpf='" + cpf + '\'' +
-                ", endereco=" + endereco +
+                ", email='" + email + '\'' +
                 ", telefone='" + telefone + '\'' +
-                ", dataNascimento=" + dataNascimento +
+                ", dataNascimento='" + dataNascimento + '\'' +
                 '}';
     }
 }

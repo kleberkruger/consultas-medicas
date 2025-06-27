@@ -161,9 +161,9 @@ public class ClinicaMedica {
         return null;
     }
 
-    public Consulta buscarConsulta(long codigo) {
+    public Consulta buscarConsulta(String codigo) {
         for (Consulta consulta : consultas) {
-            if (consulta.getCodigo() == codigo) {
+            if (consulta.getCodigo().equals(codigo)) {
                 return consulta;
             }
         }
